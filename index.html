@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  <title>Ezzo'ya Doğum Günü Sürprizi</title>
+  <style>
+    /* Genel stil */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      color: white;
+      text-align: center;
+      background-image: url('background.jpg');
+      background-size: cover;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      -webkit-text-size-adjust: 100%;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 2rem;
+      margin: 4rem auto;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 800px;
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+    .message {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      white-space: pre-wrap;
+      margin-bottom: 2rem;
+    }
+    /* Galeri stili */
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .gallery img {
+      width: calc(50% - 1rem);
+      max-width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    /* Buton stili */
+    button {
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    /* Kaktüs confetti butonu */
+    #cactusButton {
+      background: #e63946;
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    #cactusButton:hover {
+      background-color: #d62828;
+    }
+    /* Müzik kalp butonu */
+    #musicButton {
+      width: 60px;
+      height: 60px;
+      border: none;
+      border-radius: 50%;
+      background: #e63946;
+      color: white;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin: 0 auto 2rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      transition: background-color 0.3s ease;
+    }
+    #musicButton:hover {
+      background-color: #d62828;
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Ezzo'ya</h1>
+    <p class="message">
+İyi ki doğdun, iyi ki varsın, iyi ki tanıdım seni... 
+İyi kiler bitmiyor senin hakkında 😅 
+Çok güzel bir kalbin var, temiz... Hep öyle kalsın.
+Hep mutlu olmayı hak ediyorsun. Hep mutlu ol, hep gül — çünkü gülmek sana çok yakışıyor.
+
+Umarım kalan ömründe başından eksik olmam :)
+Umarım hep mutlu, huzurlu olursun. 
+İstediğin her şeyi başarma dileğimle...
+
+İyi ki doğdun Ezzom ❤️
+    </p>
+
+    <div class="gallery">
+      <img src="65269375-b9d2-4779-a6af-3abf8593083e.jpg" alt="Ezzo Fotoğraf 1" />
+      <img src="0b1e698e-45b6-43d0-91c1-3aac597a34b2.jpg" alt="Ezzo Fotoğraf 2" />
+    </div>
+
+    <button id="cactusButton">🌵 Kalbim seninle 💖</button>
+    <button id="musicButton">❤️</button>
+  </div>
+
+  <audio id="music" playsinline>
+    <source src="music.mp3" type="audio/mpeg" />
+    Tarayıcınız bu ses öğesini desteklemiyor.
+  </audio>
+
+  <!-- Confetti ve müzik kontrolü -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script>
+    document.getElementById('musicButton').addEventListener('click', () => {
+      const music = document.getElementById('music');
+      if (music.paused) {
+        music.play();
+        document.getElementById('musicButton').textContent = '🔇';
+      } else {
+        music.pause();
+        document.getElementById('musicButton').textContent = '❤️';
+      }
+    });
+    document.getElementById('cactusButton').addEventListener('click', () => {
+      confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
+    });
+  </script>
+</body>
+</html>
